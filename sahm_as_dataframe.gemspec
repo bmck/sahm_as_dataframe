@@ -2,7 +2,7 @@ require_relative 'lib/sahm_as_dataframe/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "sahm_as_dataframe"
-  spec.version       = FredAsDataframe::VERSION
+  spec.version       = SahmAsDataframe::VERSION
   spec.authors       = ["Bill McKinnon"]
   spec.email         = ["bill.mckinnon@bmck.org"]
 

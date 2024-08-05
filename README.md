@@ -28,13 +28,26 @@ This gem does not require configuration on its own, but it does require the fred
 ## Usage
 
 ``` ruby
-EconDataReader::SahmAsDataframe.new('IEXE0102').fetch
-
-EconDataReader::Fred.new('GS10').fetch 
-
-EconDataReader::Bls.new('LNS14000006')
-
-EconDataReader::Nasdaq.new('WIKI/AAPL').fetch
+3.1.2 :001 > SahmAsDataframe::Client.new.fetch
+ => 
+shape: (919, 4)                                                
+┌────────────┬────────┬────────────────┬────────────────┐      
+│ Timestamps ┆ UNRATE ┆ SAHM indicator ┆ SAHM recession │      
+│ ---        ┆ ---    ┆ ---            ┆ ---            │      
+│ date       ┆ f64    ┆ f64            ┆ bool           │      
+╞════════════╪════════╪════════════════╪════════════════╡      
+│ 1948-01-01 ┆ 3.4    ┆ 0.0            ┆ false          │      
+│ 1948-02-01 ┆ 3.8    ┆ 0.2            ┆ false          │      
+│ 1948-03-01 ┆ 4.0    ┆ 0.333333       ┆ false          │      
+│ 1948-04-01 ┆ 3.9    ┆ 0.5            ┆ true           │      
+│ 1948-05-01 ┆ 3.5    ┆ 0.4            ┆ false          │      
+│ …          ┆ …      ┆ …              ┆ …              │      
+│ 2024-03-01 ┆ 3.8    ┆ 0.4            ┆ false          │
+│ 2024-04-01 ┆ 3.9    ┆ 0.366667       ┆ false          │
+│ 2024-05-01 ┆ 4.0    ┆ 0.4            ┆ false          │
+│ 2024-06-01 ┆ 4.1    ┆ 0.5            ┆ false          │
+│ 2024-07-01 ┆ 4.3    ┆ 0.433333       ┆ false          │
+└────────────┴────────┴────────────────┴────────────────┘ 
 ```
 
 ## Documentation

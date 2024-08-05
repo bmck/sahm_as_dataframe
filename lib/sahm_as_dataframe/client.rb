@@ -1,12 +1,13 @@
 require 'polars-df'
 require 'csv'
+require 'fred_as_dataframe'
 
 module SahmAsDataframe
   class Client
     attr_reader :unrate_reader
 
     def initialize
-      @unrate_reader = FredAsDataframe::Sahm.new('UNRATE')
+      @unrate_reader = FredAsDataframe::Client.new('UNRATE')
     end
 
     def fetch(start: nil, fin: nil, interval: '1d')
