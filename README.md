@@ -27,7 +27,7 @@ This gem does not require configuration on its own, but it does require the fred
 
 ## Usage
 
-**Requirements:** Ruby >= 3.3.0
+**Requirements:** Ruby >= 3.3.0, polars-df 0.27.1
 
 ``` ruby
 > SahmAsDataframe::Client.new.fetch
@@ -100,7 +100,7 @@ Or simply:
 bundle exec rake
 ```
 
-The tests use stubbed data to avoid making live HTTP requests to the FRED API during CI runs. All Sahm indicator calculations are verified against known test data to ensure accuracy of the rolling average and minimum calculations.
+The tests use stubbed data to avoid making live HTTP requests to the FRED API. All Sahm indicator calculations are verified against known test data to ensure accuracy of the rolling average and minimum calculations.
 
 ## Contributing
 
