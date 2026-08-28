@@ -29,7 +29,7 @@ Gem::Specification.new do |spec|
 
   # Uncomment to register a new dependency of your gem
   # spec.add_dependency "typhoeus-gem", "~> 0.6.9"
-  spec.add_dependency 'polars-df', '~> 0.27.1'
+  spec.add_dependency 'polars-df', '0.27.1'
   spec.add_dependency 'fred_as_dataframe'
 
   spec.add_development_dependency 'rspec', '~> 3.0'
