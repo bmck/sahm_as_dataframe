@@ -1,8 +1,8 @@
-# EconDataReader
+# Sahm As Dataframe
 
-Up to date remote economic data access for ruby, using Polars dataframes. 
+Calculate the Sahm recession indicator using FRED unemployment data, returning results as Polars dataframes.
 
-This package will fetch economic and financial information from several different sources.
+This gem computes the Sahm indicator by fetching unemployment rate (UNRATE) data from the Federal Reserve Economic Data (FRED) API and applying the Sahm rule calculation.
 
 ## Installation
 
@@ -52,7 +52,53 @@ shape: (919, 4)
 
 ## Documentation
 
-TBD
+### The Sahm Rule
+
+The Sahm rule is a recession indicator that signals the start of a recession when the three-month moving average of the national unemployment rate rises by 0.5 percentage points or more relative to its low during the previous 12 months.
+
+This implementation calculates:
+1. A 3-month rolling average of the unemployment rate
+2. The minimum unemployment rate over the previous 12 months
+3. The Sahm indicator as the difference between these two values
+4. A recession flag when the indicator reaches or exceeds 0.5
+
+### API Reference
+
+The primary interface is `SahmAsDataframe::Client`:
+
+```ruby
+client = SahmAsDataframe::Client.new
+df = client.fetch(start: '2020-01-01', fin: '2024-12-31', interval: '1d')
+```
+
+**Parameters:**
+- `start` (optional): Start date for the data series (default: earliest available)
+- `fin` (optional): End date for the data series (default: latest available)
+- `interval` (optional): Data interval (default: '1d' for daily)
+
+**Returns:**
+A Polars DataFrame with columns:
+- `Timestamps`: Date of observation
+- `UNRATE`: Unemployment rate
+- `SAHM indicator`: The calculated Sahm indicator value
+- `SAHM recession`: Boolean flag indicating recession signal (indicator >= 0.5)
+
+## Testing
+
+This gem uses RSpec for testing. To run the test suite:
+
+```bash
+bundle install
+bundle exec rake spec
+```
+
+Or simply:
+
+```bash
+bundle exec rake
+```
+
+The tests use stubbed data to avoid making live HTTP requests to the FRED API during CI runs. All Sahm indicator calculations are verified against known test data to ensure accuracy of the rolling average and minimum calculations.
 
 ## Contributing
 

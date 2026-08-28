@@ -31,4 +31,7 @@ Gem::Specification.new do |spec|
   # spec.add_dependency "typhoeus-gem", "~> 0.6.9"
   spec.add_dependency 'polars-df'
   spec.add_dependency 'fred_as_dataframe'
+
+  spec.add_development_dependency 'rspec', '~> 3.0'
+  spec.add_development_dependency 'rake', '~> 13.0'
 end
