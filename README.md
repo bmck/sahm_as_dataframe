@@ -27,8 +27,10 @@ This gem does not require configuration on its own, but it does require the fred
 
 ## Usage
 
+**Requirements:** Ruby >= 3.3.0
+
 ``` ruby
-3.1.2 :001 > SahmAsDataframe::Client.new.fetch
+> SahmAsDataframe::Client.new.fetch
  => 
 shape: (919, 4)                                                
 ┌────────────┬────────┬────────────────┬────────────────┐      
